@@ -1,12 +1,49 @@
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/public/Home";
+import Blog from "./pages/public/Blog";
+
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+
+import Dashboard from "./pages/dashboard/Dashboard";
+
+
+
 function App() {
 
+
   return (
-    <main className="min-h-screen bg-slate-950 text-white flex items-center justify-center">
-      <h1 className="text-4xl font-bold">
-        Mon blog-portfolio
-      </h1>
-    </main>
+
+    <BrowserRouter>
+      <Routes>
+        {/*----------------------------------------
+      ROUTES PUBLIQUES                         
+      -----------------------------------------*/
+        }
+        <Route path="/" element={<Home />} />
+
+        <Route path="/blog" element={<Blog />} />
+
+        {/*-------------------------------------
+  AUTHENTIFICATION
+  --------------------------------------
+  
+*/}
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/*---------------------------------------
+   ESPACE UTILISATEUR                               
+   ----------------------------------------
+  
+*/}
+
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes >
+    </BrowserRouter >
   )
 }
 
