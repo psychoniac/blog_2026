@@ -9,10 +9,10 @@ import Register from "./pages/auth/Register";
 
 import Dashboard from "./pages/dashboard/Dashboard";
 
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 
 function App() {
-
 
   return (
 
@@ -35,13 +35,16 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/*---------------------------------------
-   ESPACE UTILISATEUR                               
-   ----------------------------------------
-  
-*/}
+        {/*
+     --------------------------------------------
+        ROUTES PROTEGEES
+    -------------------------------------------      
+    */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
+
       </Routes >
     </BrowserRouter >
   )
